@@ -1,1 +1,1 @@
-# Studia
+# Issues performed during studies
