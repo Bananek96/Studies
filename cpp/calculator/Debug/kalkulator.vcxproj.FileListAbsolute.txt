@@ -1,0 +1,2 @@
+D:\Nauka\SEMESTR 2\kalkulator\Debug\kalkulator.exe
+D:\Nauka\SEMESTR 2\kalkulator\Debug\kalkulator.pdb

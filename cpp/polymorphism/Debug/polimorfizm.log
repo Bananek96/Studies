@@ -1,0 +1,5 @@
+﻿  Kolo.cpp
+D:\Nauka\SEMESTR 2\polimorfizm\Kolo.h(17,15): error C3668: 'Kolo::info': method with override specifier 'override' did not override any base class methods
+  polimorfizm.cpp
+D:\Nauka\SEMESTR 2\polimorfizm\Kolo.h(17,15): error C3668: 'Kolo::info': method with override specifier 'override' did not override any base class methods
+  Generating Code...
