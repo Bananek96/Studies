@@ -89,9 +89,54 @@ def jacobi(main_matrix, free_matrix):
 
     print('\nRozwiazanie metoda Jacobi: ')
     print(x)
-    print(solve(a,b))
-    # for i in range(len(x)):
-    #     print('X%d = %0.2f' % (i, x[i]), end='\t')
+    x = solve(a, b)
+    for i in range(len(x)):
+        print('X%d = %0.2f' % (i, x[i]), end='\t')
+
+
+def jacobi_2(main_matrix, free_matrix, max_iterations=25):
+    A = macierz_bez_wolnych(main_matrix)
+    b = free_matrix
+    A = np.array(A)
+    b = np.array(b)
+    x = np.zeros(len(b))
+
+    U = np.triu(A,1)
+    L = np.tril(A, -1)
+    D = np.diagflat(np.diag(A))
+    inv_of_D = np.linalg.inv(D)
+    minus_L_minus_U = -L-U
+
+    for i in range(max_iterations):
+        minus_L_minus_U_dot_x_plus_b = np.dot(minus_L_minus_U, x) + b
+        x = np.dot(inv_of_D, minus_L_minus_U_dot_x_plus_b)
+        print(i+1, np.round(x, 5))
+
+    print('\nRozwiazanie metoda Jacobi: ')
+    for i in range(len(x)):
+        print('X%d = %0.2f' % (i, x[i, 1]), end='\t')
+
+def krockener(main_matrix, free_matrix):
+    a = macierz_bez_wolnych(main_matrix)
+    a = np.array(a)
+    b = free_matrix
+    b = np.array(b)
+
+    n = a.shape[1]
+
+    # Sprawdź warunek istnienia rozwiązania
+    if np.linalg.matrix_rank(a) != np.linalg.matrix_rank(np.column_stack((a, b))):
+        print("\nUkład równań jest sprzeczny lub nieoznaczony")
+    else:
+        # Oblicz wymiar przestrzeni rozwiązań
+        r = np.linalg.matrix_rank(a)
+        dim = n - r
+
+        # Wyświetl liczbę rozwiązań
+        if dim == 0:
+            print("\nUkład równań ma jedno rozwiązanie")
+        else:
+            print(f"\nUkład równań ma nieskończenie wiele rozwiązań, wymiar przestrzeni rozwiązań to {dim}")
 
 
 def main(args):
@@ -102,16 +147,19 @@ def main(args):
     free_matrix = macierz_wolna(main_matrix)
     print("Wygenerowane macierz wyrazow wolnych:")
     print(free_matrix)
+    krockener(main_matrix, free_matrix)
     gauss_elimination(main_matrix, free_matrix)
-
-    main_matrix = [[2, 1, 1, -1, 3], [1, 1, -1, 1, 4], [1, 1, 1, 1, 10], [-1, 2, -1, 1, 4]]
-    free_matrix = [[3], [4], [10], [4]]
+    #main_matrix = [[2, 1, 1, -1, 3], [1, 1, -1, 1, 4], [1, 1, 1, 1, 10], [-1, 2, -1, 1, 4]]
+    #free_matrix = [[3], [4], [10], [4]]
+    main_matrix = [[2, 1, 0, 0, 4], [1, 3, 1, 1, 14], [0, 0, 4, 3, 24], [0, 0, 1, 5, 23]]
+    free_matrix = [[4], [14], [24], [23]]
     print("\n\nPrzykladowa macierz glowna:")
     print(macierz_bez_wolnych(main_matrix))
     print("Przykladowa macierz wyrazow wolnych:")
     print(free_matrix)
-    # gauss_elimination(main_matrix, free_matrix)
-    jacobi(main_matrix, free_matrix)
+    #gauss_elimination(main_matrix, free_matrix)
+    krockener(main_matrix, free_matrix)
+    jacobi_2(main_matrix, free_matrix)
 
     return 0
 

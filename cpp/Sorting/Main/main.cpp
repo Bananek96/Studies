@@ -5,9 +5,12 @@
 #include<string>
 #include<algorithm>
 #include<sstream>
-#include <thread>
+#include<thread>
+#include<future>
 
 using namespace std;
+
+bool time_expired = false;
 
 class Timer {
 public:
@@ -33,6 +36,13 @@ private:
     chrono::high_resolution_clock::time_point start_time;
     chrono::high_resolution_clock::time_point stop_time;
 };
+
+void set_time_expired_flag() {
+    async(launch::async, [](){
+        this_thread::sleep_for(chrono::minutes(10));
+        time_expired = true;
+    });
+}
 
 void zamien(int tab[], int i)
 {
@@ -72,10 +82,15 @@ int max(const int tab[], int rozmiar)
 
 void show_loading_bar() {
 
+    std::thread time_thread(    set_time_expired_flag);
     while (true) {
         cout << ". ";
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        this_thread::sleep_for(chrono::milliseconds(500));
+        if (time_expired) {
+            cout << "\nCzas uplynal!" << endl;
+            exit(-1);
+        }
     }
 }
 
@@ -244,11 +259,6 @@ int sort_cup(int tab[], int n, int licznik)
         licznik ++;
     }
 
-// wyswietlamy zawartosc zbioru po sortowaniu
-
-    cout << "Po sortowaniu:\n";
-    for(i = 0; i < n; i++) cout << ' ' << tab[i];
-    cout << endl << endl;
     return licznik;
 }
 
@@ -291,7 +301,7 @@ void write(const string& filename, int* data, int size){
     plik_wyjsciowy.close();
 }
 
-int write_summary(const string& filename, string function_name,double time_ms, double time_s, int ile, int licznik){
+int write_summary(const string& filename, const string& function_name, double time_ms, double time_s, int ile, int licznik){
     ofstream plik_wyjsciowy;
     plik_wyjsciowy.open(filename, ios_base::app);
     if (!plik_wyjsciowy.is_open()) { // sprawdzenie, czy plik został otwarty poprawnie
@@ -308,7 +318,7 @@ int write_summary(const string& filename, string function_name,double time_ms, d
     plik_wyjsciowy.close();
 }
 
-void config(const string& configFile, string& inputFile, string& outputFile, string& sortMethod, string& counter, string& summaryFile) {
+void config(const string& configFile, string& inputFile, string& outputFile, string& sortMethod, string& counter, string& summaryFile, string& iteracje) {
     // Otwórz plik konfiguracyjny
     ifstream config(configFile);
     if (!config) {
@@ -339,6 +349,8 @@ void config(const string& configFile, string& inputFile, string& outputFile, str
             counter = value;
         } else if (key == "plik_podsumowywujacy") {
             summaryFile = value;
+        } else if (key == "iteracje") {
+            iteracje = value;
         } else {
             cerr << "Nieznany klucz w pliku konfiguracyjnym!" << endl;
             return;
@@ -351,64 +363,67 @@ int main(){
     vector<int> liczby;
 
     string config_filename = R"(E:\Materialy\Struktury danych i zlozonosc obliczeniowa\Laby\Kody\config.ini)";
-    string input_name, output_name, function_name, counter, summary_name;
-    config(config_filename,input_name, output_name, function_name, counter, summary_name);
+    string input_name, output_name, function_name, counter, summary_name, iteracje;
+    config(config_filename,input_name, output_name, function_name, counter, summary_name, iteracje);
 
-    // Odczyt pliku z danymi
-    cout << "Odczyt danych z pliku: " << input_name << "...";
-    string filename = input_name;
-    read(filename, liczby);
-    cout << "DONE" << endl;
+    int iter = stoi(iteracje);
 
-    int ile ;
-    ile = stoi(counter);
-    int licznik = 0;
-    int rozmiar = liczby.size();
-    int *tablica = new int[rozmiar];
-    copy(liczby.begin(),liczby.end(), tablica);
-    rozmiar = ile;
-    cout << "Rozpoczecie liczenia czasu!!!" << endl;
-    timer.start_timer();
+    for(int i = 0; i < iter; i++) {
+        // Odczyt pliku z danymi
+        cout << "\nOdczyt danych z pliku: " << input_name << "...";
+        string filename = input_name;
+        read(filename, liczby);
+        cout << "DONE" << endl;
 
-    std::thread loading_thread(show_loading_bar);
-    cout << "Uruchomienie odpowiedniego algorytmu sortujacego pobranego z pliku config.ini";
+        int ile;
+        ile = stoi(counter);
+        int licznik = 0;
+        int rozmiar = liczby.size();
+        int *tablica = new int[rozmiar];
+        copy(liczby.begin(), liczby.end(), tablica);
+        rozmiar = ile;
+        cout << "Rozpoczecie liczenia czasu!!!" << endl;
+        timer.start_timer();
 
-    if(function_name == "babelkowe_mal")
-        licznik = sort_bubble_dec(tablica, rozmiar, licznik);  // sortowanie malejąco
-    else if(function_name == "babelkowe_ros")
-        licznik = sort_bubble_inc(tablica, rozmiar, licznik);
-    else if(function_name == "koktajlowe")
-        licznik =  sort_double_bubble(tablica, rozmiar, licznik);
-    else if(function_name == "wybor")
-        licznik =  sort_choice(tablica, rozmiar, licznik);
-    else if(function_name == "wstawianie")
-        licznik =  sort_insert(tablica, rozmiar, licznik);
-    else if(function_name == "grzebieniowe")
-        licznik = sort_comb(tablica, rozmiar, licznik);
-    else if(function_name == "kubelkowe")
-        licznik =  sort_cup(tablica, rozmiar, licznik);
-    else
-        cout << "Popraw plik konfiguracyjny, bledna nazwa sortowania!" << endl;
+        std::thread loading_thread(show_loading_bar);
+        cout << "Uruchomienie odpowiedniego algorytmu sortujacego pobranego z pliku config.ini";
 
-    loading_thread.detach();
+        if (function_name == "babelkowe_mal")
+            licznik = sort_bubble_dec(tablica, rozmiar, licznik);  // sortowanie malejąco
+        else if (function_name == "babelkowe_ros")
+            licznik = sort_bubble_inc(tablica, rozmiar, licznik);
+        else if (function_name == "koktajlowe")
+            licznik = sort_double_bubble(tablica, rozmiar, licznik);
+        else if (function_name == "wybor")
+            licznik = sort_choice(tablica, rozmiar, licznik);
+        else if (function_name == "wstawianie")
+            licznik = sort_insert(tablica, rozmiar, licznik);
+        else if (function_name == "grzebieniowe")
+            licznik = sort_comb(tablica, rozmiar, licznik);
+        else if (function_name == "kubelkowe")
+            licznik = sort_cup(tablica, rozmiar, licznik);
+        else
+            cout << "Popraw plik konfiguracyjny, bledna nazwa sortowania!" << endl;
 
-    timer.stop_timer();
-    cout << "\nZatrzymanie liczenia czasu!!!" << endl;
+        loading_thread.detach();
 
-    double elapsed_time_ms = timer.elapsed_time_milliseconds();
-    double elapsed_time_s = timer.elapsed_time_seconds();
+        timer.stop_timer();
+        cout << "\nZatrzymanie liczenia czasu!!!" << endl;
 
-    cout << "Zapis danych do pliku: " << output_name << "...";
-    filename = output_name;
-    write(filename, tablica, rozmiar);
-    cout << "DONE" << endl;
+        double elapsed_time_ms = timer.elapsed_time_milliseconds();
+        double elapsed_time_s = timer.elapsed_time_seconds();
 
-    cout << "Zapis podsumowania do pliku: " << summary_name << "...";
-    filename = summary_name;
-    write_summary(filename, function_name, elapsed_time_ms, elapsed_time_s, ile, licznik);
-    cout << "DONE" << endl;
+        cout << "Zapis danych do pliku: " << output_name << "...";
+        filename = output_name;
+        write(filename, tablica, rozmiar);
+        cout << "DONE" << endl;
 
-    delete[] tablica;
+        cout << "Zapis podsumowania do pliku: " << summary_name << "...";
+        filename = summary_name;
+        write_summary(filename, function_name, elapsed_time_ms, elapsed_time_s, ile, licznik);
+        cout << "DONE" << endl;
 
+        delete[] tablica;
+    }
     return 0;
 }
