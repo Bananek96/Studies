@@ -39,7 +39,7 @@ private:
 
 void set_time_expired_flag() {
     async(launch::async, [](){
-        this_thread::sleep_for(chrono::minutes(10));
+        this_thread::sleep_for(chrono::minutes(60));
         time_expired = true;
     });
 }
@@ -362,7 +362,7 @@ int main(){
     Timer timer;
     vector<int> liczby;
 
-    string config_filename = R"(E:\Materialy\Struktury danych i zlozonosc obliczeniowa\Laby\Kody\config.ini)";
+    string config_filename = R"(D:\Studia\Struktury danych i zlozonosc obliczeniowa\Laby\Kody\config.ini)";
     string input_name, output_name, function_name, counter, summary_name, iteracje;
     config(config_filename,input_name, output_name, function_name, counter, summary_name, iteracje);
 
