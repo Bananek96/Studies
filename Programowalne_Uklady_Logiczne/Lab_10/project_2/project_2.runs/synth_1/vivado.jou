@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Jan 18 19:31:01 2025
+# Process ID: 22852
+# Current directory: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_10/project_2/project_2.runs/synth_1
+# Command line: vivado.exe -log rozkazy_sekwencyjne.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rozkazy_sekwencyjne.tcl
+# Log file: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_10/project_2/project_2.runs/synth_1/rozkazy_sekwencyjne.vds
+# Journal file: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_10/project_2/project_2.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source rozkazy_sekwencyjne.tcl -notrace

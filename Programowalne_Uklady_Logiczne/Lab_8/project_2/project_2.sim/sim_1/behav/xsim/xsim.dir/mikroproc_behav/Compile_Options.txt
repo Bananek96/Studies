@@ -1,0 +1,1 @@
+-wto "97bade53f83740e6b3f2186c4dd4d2d0" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "mikroproc_behav" "xil_defaultlib.mikroproc" -log "elaborate.log" 

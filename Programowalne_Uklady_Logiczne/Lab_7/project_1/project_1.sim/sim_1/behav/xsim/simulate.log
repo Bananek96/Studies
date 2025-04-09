@@ -1,0 +1,8 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+Error: Test 1 failed: GPIO should be x'00'
+Time: 40 ns  Iteration: 0  Process: /tb_tablice/stim_proc  File: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_7/project_1/project_1.srcs/sim_1/new/test.vhd
+Error: Test 4 failed: GPIO should be x'02'
+Time: 80 ns  Iteration: 0  Process: /tb_tablice/stim_proc  File: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_7/project_1/project_1.srcs/sim_1/new/test.vhd
+Error: Test 5 failed: GPIO should be x'00' after reset
+Time: 100 ns  Iteration: 0  Process: /tb_tablice/stim_proc  File: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_7/project_1/project_1.srcs/sim_1/new/test.vhd

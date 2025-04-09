@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_3/SUM1B/SUM1B.srcs/sources_1/new/SUMNB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SUMNB'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_3/SUM1B/SUM1B.srcs/sim_1/new/test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'test'

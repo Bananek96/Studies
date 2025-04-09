@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_4/project_1/project_1.srcs/sources_1/new/Licznik_8bit.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Licznik_8bit'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_4/project_1/project_1.srcs/sim_1/new/test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'test'

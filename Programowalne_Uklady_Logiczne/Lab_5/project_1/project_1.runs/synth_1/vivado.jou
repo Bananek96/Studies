@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Nov  4 09:28:59 2024
+# Process ID: 14268
+# Current directory: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_5/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log maszyna_stanow.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source maszyna_stanow.tcl
+# Log file: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_5/project_1/project_1.runs/synth_1/maszyna_stanow.vds
+# Journal file: D:/github/Studies/Programowalne_Uklady_Logiczne/Lab_5/project_1/project_1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source maszyna_stanow.tcl -notrace

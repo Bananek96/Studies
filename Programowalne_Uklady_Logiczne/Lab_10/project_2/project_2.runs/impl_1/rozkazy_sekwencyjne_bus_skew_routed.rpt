@@ -1,0 +1,15 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Jan 18 19:32:39 2025
+| Host         : Ovocsiak running 64-bit major release  (build 9200)
+| Command      : report_bus_skew -warn_on_violation -file rozkazy_sekwencyjne_bus_skew_routed.rpt -pb rozkazy_sekwencyjne_bus_skew_routed.pb -rpx rozkazy_sekwencyjne_bus_skew_routed.rpx
+| Design       : rozkazy_sekwencyjne
+| Device       : 7a12t-cpg238
+| Speed File   : -3  PRODUCTION 1.23 2018-06-13
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+No bus skew constraints
+

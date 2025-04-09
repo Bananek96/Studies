@@ -1,0 +1,27 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-213,-468",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
+#  -string -flagsOSRD
+preplace port clk -pg 1 -lvl 0 -x -20 -y -150 -defaultsOSRD
+preplace port btnC -pg 1 -lvl 0 -x -20 -y -130 -defaultsOSRD
+preplace port btnR -pg 1 -lvl 0 -x -20 -y -300 -defaultsOSRD
+preplace portBus led -pg 1 -lvl 3 -x 770 -y -280 -defaultsOSRD
+preplace inst c_counter_binary_0 -pg 1 -lvl 1 -x 260 -y -140 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 2 -x 630 -y -150 -defaultsOSRD
+preplace inst mikroproc_0 -pg 1 -lvl 2 -x 630 -y -280 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 260 -y -330 -defaultsOSRD
+preplace netloc clk_1 1 0 1 N -150
+preplace netloc mikroproc_0_GPIO 1 2 1 N -280
+preplace netloc c_counter_binary_0_Q 1 1 1 350 -150n
+preplace netloc xlslice_0_Dout 1 1 2 360 -360 740
+preplace netloc btnR_1 1 0 2 0J -260 N
+preplace netloc btnC_1 1 0 1 N -130
+preplace netloc xlconstant_0_dout 1 1 1 350 -330n
+levelinfo -pg 1 -20 260 630 770
+pagesize -pg 1 -db -bbox -sgen -100 -500 870 120
+"
+}
+0

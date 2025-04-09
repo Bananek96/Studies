@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "F:/Studia/PUL/Lab_2/zad_1/zad_1.srcs/sources_1/new/zad_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'zad_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "F:/Studia/PUL/Lab_2/zad_1/zad_1.srcs/sim_1/new/test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'test'
