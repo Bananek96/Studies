@@ -1,10 +1,66 @@
-15:25:24 **** Incremental Build of configuration Debug for project Lab_0 ****
+14:27:17 **** Incremental Build of configuration Debug for project Lab_0 ****
 make -j8 all 
-arm-none-eabi-size  Lab_0.elf 
-   text	   data	    bss	    dec	    hex	filename
-    700	      0	   1568	   2268	    8dc	Lab_0.elf
-Finished building: default.size.stdout
- 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4 -DSTM32 -DSTM32L432KCUx -DSTM32L432xx -c -I../Inc -I"C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include" -I"C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+In file included from ../Src/main.c:20:
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:105:8: error: #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+  105 |       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      |        ^~~~~
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1679:39: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1679 | __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
+      |                                       ^~~~~~~~~
+      |                                       ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1698:46: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1698 | __STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
+      |                                              ^~~~~~~~~
+      |                                              ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1717:40: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1717 | __STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+      |                                        ^~~~~~~~~
+      |                                        ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1736:47: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1736 | __STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
+      |                                               ^~~~~~~~~
+      |                                               ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1755:43: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1755 | __STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+      |                                           ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1770:45: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1770 | __STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+      |                                             ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1787:43: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1787 | __STATIC_INLINE uint32_t __NVIC_GetActive(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+      |                                           ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1809:41: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1809 | __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+      |                                         ^~~~~~~~~
+      |                                         ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1831:45: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1831 | __STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+      |                                             ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h: In function 'NVIC_EncodePriority':
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1862:64: error: '__NVIC_PRIO_BITS' undeclared (first use in this function)
+ 1862 |   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NVIC_PRIO_BITS) : (uint32_t)(7UL - PriorityGroupTmp);
+      |                                                                ^~~~~~~~~~~~~~~~
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1862:64: note: each undeclared identifier is reported only once for each function it appears in
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h: In function 'NVIC_DecodePriority':
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1889:64: error: '__NVIC_PRIO_BITS' undeclared (first use in this function)
+ 1889 |   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NVIC_PRIO_BITS) : (uint32_t)(7UL - PriorityGroupTmp);
+      |                                                                ^~~~~~~~~~~~~~~~
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h: At top level:
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1906:39: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1906 | __STATIC_INLINE void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
+      |                                       ^~~~~~~~~
+      |                                       ITM_Type
+C:/Users/banas/STM32Cube/Repository/STM32Cube_FW_L4_V1.18.1/Drivers/CMSIS/Core/Include/core_cm4.h:1922:43: error: unknown type name 'IRQn_Type'; did you mean 'ITM_Type'?
+ 1922 | __STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+      |                                           ITM_Type
+make: *** [Src/subdir.mk:28: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
 
-15:25:24 Build Finished. 0 errors, 0 warnings. (took 205ms)
+14:27:18 Build Failed. 15 errors, 0 warnings. (took 374ms)
 

@@ -1,0 +1,16 @@
+../Core/Src/main.c:189:5:__io_putchar	1
+../Core/Src/main.c:196:6:HAL_UART_RxCpltCallback	2
+../Core/Src/main.c:212:5:main	1
+../Core/Src/main.c:319:6:SystemClock_Config	3
+../Core/Src/main.c:367:13:MX_ADC1_Init	3
+../Core/Src/main.c:419:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:452:13:MX_GPIO_Init	1
+../Core/Src/main.c:487:7:CommandHandler_Parse	28
+../Core/Src/main.c:579:10:ReadAdcValue	3
+../Core/Src/main.c:612:6:StartDefaultTask	8
+../Core/Src/main.c:663:6:StartTask02	5
+../Core/Src/main.c:704:6:StartAdcSamplerTask	1
+../Core/Src/main.c:730:6:StartDataAnalyzerTask	10
+../Core/Src/main.c:796:6:StartAlertMonitorTask	4
+../Core/Src/main.c:834:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:852:6:Error_Handler	1

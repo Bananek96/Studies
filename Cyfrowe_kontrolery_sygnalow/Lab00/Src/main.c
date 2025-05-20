@@ -17,11 +17,22 @@
  */
 
 #include <stdint.h>
+#include "core_cm4.h"
 #include <stm32l4xx.h>
 
 int main(void)
 {
-	RCC -> AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
+	SET_BIT(RCC -> AHB2ENR, RCC_AHB2ENR_GPIOBEN);
+
+    GPIOB->MODER &= ~GPIO_MODER_MODE3;
+    GPIOB->MODER |= GPIO_MODER_MODE3_0;
+
+	//SysTick_Config(SystemCoreClock/2);
     /* Loop forever */
 	for(;;);
+}
+
+void SysTick_Handler(void)
+{
+	GPIOB->ODR ^= GPIO_ODR_OD3;
 }

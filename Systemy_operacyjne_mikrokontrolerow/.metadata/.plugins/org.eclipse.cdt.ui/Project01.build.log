@@ -1,0 +1,55 @@
+08:40:27 **** Incremental Build of configuration Debug for project Project01 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:78:8: error: unknown type name 'osMessageQueueId_t'
+   78 | extern osMessageQueueId_t myQueue01Handle;
+      |        ^~~~~~~~~~~~~~~~~~
+../Core/Inc/main.h:79:8: error: unknown type name 'osMessageQueueId_t'
+   79 | extern osMessageQueueId_t ledCmdQueueHandle;
+      |        ^~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/freertos.c:23:
+../Core/Inc/main.h:78:8: error: unknown type name 'osMessageQueueId_t'
+   78 | extern osMessageQueueId_t myQueue01Handle;
+      |        ^~~~~~~~~~~~~~~~~~
+../Core/Inc/main.h:79:8: error: unknown type name 'osMessageQueueId_t'
+   79 | extern osMessageQueueId_t ledCmdQueueHandle;
+      |        ^~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32f4xx_hal_msp.c:22:
+../Core/Inc/main.h:78:8: error: unknown type name 'osMessageQueueId_t'
+   78 | extern osMessageQueueId_t myQueue01Handle;
+      |        ^~~~~~~~~~~~~~~~~~
+../Core/Inc/main.h:79:8: error: unknown type name 'osMessageQueueId_t'
+   79 | extern osMessageQueueId_t ledCmdQueueHandle;
+      |        ^~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32f4xx_it.c:21:
+../Core/Inc/main.h:78:8: error: unknown type name 'osMessageQueueId_t'
+   78 | extern osMessageQueueId_t myQueue01Handle;
+      |        ^~~~~~~~~~~~~~~~~~
+../Core/Inc/main.h:79:8: error: unknown type name 'osMessageQueueId_t'
+   79 | extern osMessageQueueId_t ledCmdQueueHandle;
+      |        ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/freertos.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:40: Core/Src/stm32f4xx_hal_msp.o] Error 1
+make: *** [Core/Src/subdir.mk:40: Core/Src/stm32f4xx_it.o] Error 1
+../Core/Src/main.c:68:20: error: conflicting types for 'myQueue01Handle'; have 'osMessageQueueId_t' {aka 'void *'}
+   68 | osMessageQueueId_t myQueue01Handle;
+      |                    ^~~~~~~~~~~~~~~
+../Core/Inc/main.h:78:27: note: previous declaration of 'myQueue01Handle' with type 'int'
+   78 | extern osMessageQueueId_t myQueue01Handle;
+      |                           ^~~~~~~~~~~~~~~
+../Core/Src/main.c:76:20: error: conflicting types for 'ledCmdQueueHandle'; have 'osMessageQueueId_t' {aka 'void *'}
+   76 | osMessageQueueId_t ledCmdQueueHandle;
+      |                    ^~~~~~~~~~~~~~~~~
+../Core/Inc/main.h:79:27: note: previous declaration of 'ledCmdQueueHandle' with type 'int'
+   79 | extern osMessageQueueId_t ledCmdQueueHandle;
+      |                           ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+08:40:27 Build Failed. 15 errors, 0 warnings. (took 721ms)
+

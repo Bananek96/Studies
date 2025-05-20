@@ -1,0 +1,16 @@
+../Core/Src/main.c:189:5:__io_putchar	16	static
+../Core/Src/main.c:196:6:HAL_UART_RxCpltCallback	16	static
+../Core/Src/main.c:212:5:main	8	static
+../Core/Src/main.c:319:6:SystemClock_Config	88	static
+../Core/Src/main.c:367:13:MX_ADC1_Init	24	static
+../Core/Src/main.c:419:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:452:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:487:7:CommandHandler_Parse	32	static
+../Core/Src/main.c:579:10:ReadAdcValue	24	static
+../Core/Src/main.c:612:6:StartDefaultTask	88	static
+../Core/Src/main.c:663:6:StartTask02	24	static
+../Core/Src/main.c:704:6:StartAdcSamplerTask	24	static
+../Core/Src/main.c:730:6:StartDataAnalyzerTask	80	static
+../Core/Src/main.c:796:6:StartAlertMonitorTask	72	static
+../Core/Src/main.c:834:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:852:6:Error_Handler	4	static
